@@ -31,7 +31,6 @@ export function COTAnalysis() {
           return obj;
         }).filter(item => item.Par || item["Par "] || item["PAR"]);
 
-        console.log("Datos COT cargados:", jsonData); // Para diagnóstico
         setData(jsonData);
       } catch (e) { console.error("Error crítico COT:", e); } finally { setLoading(false); }
     }
@@ -85,7 +84,7 @@ export function COTAnalysis() {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className={`text-5xl font-black font-mono tracking-tighter ${netPos >= 0 ? "text-green-400" : "text-red- red-400"}`}>
+            <div className={`text-5xl font-black font-mono tracking-tighter ${netPos >= 0 ? "text-green-400" : "text-red-400"}`}>
               {isNaN(netPos) ? "---" : (netPos > 0 ? "+" : "") + netPos}
             </div>
             <p className="text-xs text-zinc-500 mt-2">Puntuación basada en el posicionamiento neto actual.</p>
